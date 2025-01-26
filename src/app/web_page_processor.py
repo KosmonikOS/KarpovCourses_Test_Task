@@ -22,7 +22,7 @@ class WebPageProcessor:
         Args:
             urls: List of URLs to process
         Returns:
-            List of text chunks
+            List of text chunks with page names
         """
         # Load documents
         loader = WebBaseLoader(urls)
@@ -34,5 +34,12 @@ class WebPageProcessor:
         )
         chunks = splitter.split_documents(docs)
 
-        # Extract text content from chunks
-        return [chunk.page_content for chunk in chunks]
+        # Extract text content and source from chunks
+        formatted_chunks = []
+        for chunk in chunks:
+            page_name = chunk.metadata.get("title", "Unknown")
+            page_source = chunk.metadata.get("source", "Unknown")
+            formatted_text = f"Page name:\n{page_name}\nPage source:\n{page_source}\nPage content:\n{chunk.page_content}\n"
+            formatted_chunks.append(formatted_text)
+
+        return formatted_chunks

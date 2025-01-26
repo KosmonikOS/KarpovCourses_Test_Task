@@ -1,8 +1,8 @@
 import os
 from openai import OpenAI
-from app.config import QA_PROMPT
-from app.vector_store import VectorStore
-from app.embedder import Embedder
+from config import QA_PROMPT
+from vector_store import VectorStore
+from embedder import Embedder
 
 
 class CourseAdvisor:
@@ -44,7 +44,6 @@ class CourseAdvisor:
         try:
             # Format the prompt using the template
             formatted_prompt = QA_PROMPT.format(context=context, question=question)
-
             messages = [{"role": "user", "content": formatted_prompt}]
 
             response = self.client.chat.completions.create(
