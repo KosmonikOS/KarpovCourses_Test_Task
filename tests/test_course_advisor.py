@@ -27,7 +27,9 @@ def test_course_advisor_response():
     store.add_texts(chunks, embeddings)
 
     # Process query with temperature 0 for deterministic output
-    response = advisor.process_query(TEST_QUESTION, temperature=0.0)
+    response = advisor.process_query(
+        TEST_QUESTION, temperature=0.0, max_completion_tokens=100
+    )
 
     # Assert response matches expected answer
     assert (

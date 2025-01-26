@@ -4,12 +4,6 @@ from app.config import COURSE_URLS
 from tests.constants import EXPECTED_CHUNK_COUNT, EXPECTED_FIRST_CHUNKS
 
 
-@pytest.fixture
-def processor():
-    """Create processor instance with default parameters"""
-    return WebPageProcessor()
-
-
 def test_chunk_count():
     """Test that processing first URL produces expected number of chunks"""
     processor = WebPageProcessor(chunk_size=500, chunk_overlap=100)
