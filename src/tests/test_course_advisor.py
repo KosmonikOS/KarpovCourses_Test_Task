@@ -28,7 +28,7 @@ def test_course_advisor_response():
 
     # Process query with temperature 0 for deterministic output
     response = advisor.process_query(
-        TEST_QUESTION, temperature=0.0, max_completion_tokens=100
+        TEST_QUESTION, temperature=0.0, max_completion_tokens=10
     )
 
     # Assert response matches expected answer

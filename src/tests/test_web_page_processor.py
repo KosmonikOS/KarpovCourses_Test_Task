@@ -1,4 +1,3 @@
-import pytest
 from app.web_page_processor import WebPageProcessor
 from app.config import COURSE_URLS
 from tests.constants import EXPECTED_CHUNK_COUNT, EXPECTED_FIRST_CHUNKS
